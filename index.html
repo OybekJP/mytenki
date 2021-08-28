@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js" defer async></script>
+</head>
+<body>
+  <main>
+    <div class="nav-container">
+      <div class="nav-wrapper">
+        <nav>
+          <a class="logo" href="/">My Tenki</a> 
+        </nav>
+      </div>
+    </div>
+
+    <div class="search-container">
+      <div class="search-wrapper">
+        <header>
+          <svg></svg>
+          <form class="search-form">
+            <input name="query" type="text" placeholder="Search Location">
+            <input name="submit" type="submit" value="Search">
+          </form>
+        </header>
+      </div>  
+    </div>
+
+    <div class="forecast-container">
+      <div class="forecast-wrapper">
+        <div class="large-infos">
+          <div class="left-large-infos">
+            <h2 id="city-name">Shinjuku</h2>
+            <h3 id="todays-date">August 28, 2021</h3>
+            <img class="large-weather-icon" src="images/cloud.svg">
+            <h3 class="weather-condition">Cloudy</h3>
+          </div>
+          <div class="right-large-infos">
+            <h3><span>72</span>&deg;</h3>
+            <span class="max-temp">81&deg;</span>
+            <span>/</span>
+            <span class="min-temp">57&deg;</span>
+          </div>
+        </div>
+        
+        <div class="hourly-daily-container">
+          <h3 class="hourly-header">Hourly</h3>
+          <h3 class="daily-header">Daily</h3>
+          <hr width="500" align="left">
+        </div>
+
+        <div class="hourly-weather-container">
+          <div class="hourly-weather">
+            <h3 class="date">11</h3>
+            <img src="images/cloud-small.png">
+            <h3 class="hourly-degree">79&deg;</h3>
+          </div>
+          
+          <div class="hourly-weather">
+            <h3 class="date">11</h3>
+            <img src="images/cloud-small.png">
+            <h3 class="hourly-degree">79&deg;</h3>
+          </div>
+
+          <div class="hourly-weather">
+            <h3 class="date">11</h3>
+            <img src="images/cloud-small.png">
+            <h3 class="hourly-degree">79&deg;</h3>
+          </div>
+
+          <div class="hourly-weather">
+            <h3 class="date">11</h3>
+            <img src="images/cloud-small.png">
+            <h3 class="hourly-degree">79&deg;</h3>
+          </div>
+
+          <div class="hourly-weather">
+            <h3 class="date">11</h3>
+            <img src="images/cloud-small.png">
+            <h3 class="hourly-degree">79&deg;</h3>
+          </div>
+
+          <div class="hourly-weather">
+            <h3 class="date">11AM</h3>
+            <img src="images/cloud-small.png">
+            <h3 class="hourly-degree">79&deg;</h3>
+          </div>
+        </div>
+        <!--create daily forecast toggle info later-->
+
+      </div>
+    </div>
+
+    <div class="humidty-wind-container">
+      <div class="humidity-container">
+        <h3>Humidity</h3>
+        <div class="flex-container">
+          <h3 class="humidity-deg">75&deg;</h3>
+          <div class="right">
+            <h3 class="detail-text-left">Feels Like</h3>
+            <span class="detail-text-right">39&deg;</span>
+            <h3 class="detail-text-left">UV index</h3>
+            <span class="detail-text-right">3 Moderate</span>
+          </div>
+        </div>
+
+        <div class="flex-container">
+          <h3>Wind</h3>
+          <div class="flex-container">
+            <img src="images/wind.svg">
+            <!--<img src="https://img.icons8.com/plumpy/24/000000/weather-station-wind--v2.png"/>-->
+            <div class="right">
+              <h3 class="detail-text-left">Direction</h3>
+              <span class="detail-text-right">South&deg;</span>
+              <h3 class="detail-text-left">Speed</h3>
+              <span class="detail-text-right">12-28km/h</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="socials">
+        <a href="/" class="socials">
+          <img src="images/github.png" alt="link to hithub account">
+        </a>
+        <a href="/" class="socials">
+          <img src="images/linkedin.png" alt="link to linkedin account">
+        </a>
+        <a href="/" class="socials">
+          <img src="images/instagram.png" alt="link to instagram account">
+        </a>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
