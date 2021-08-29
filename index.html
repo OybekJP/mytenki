@@ -18,17 +18,14 @@
       </div>
     </div>
 
-    <div class="search-container">
-      <div class="search-wrapper">
-        <header>
-          <svg></svg>
-          <form class="search-form">
-            <input name="query" type="text" placeholder="Search Location">
-            <input name="submit" type="submit" value="Search">
-          </form>
-        </header>
-      </div>  
-    </div>
+    <header>
+      <img src="images/search.svg">
+      <form class="search-form">
+        <input class="search-input" name="query" type="search" placeholder="Search Location">
+        <input class="search-submit" name="submit" type="submit" value="Search">
+      </form>
+    </header>
+
 
     <div class="forecast-container">
       <div class="forecast-wrapper">
@@ -36,57 +33,55 @@
           <div class="left-large-infos">
             <h2 id="city-name">Shinjuku</h2>
             <h3 id="todays-date">August 28, 2021</h3>
-            <img class="large-weather-icon" src="images/cloud.svg">
+            <img class="large-weather-icon weather-icon" src="images/cloud.svg">
             <h3 class="weather-condition">Cloudy</h3>
           </div>
           <div class="right-large-infos">
-            <h3><span>72</span>&deg;</h3>
-            <span class="max-temp">81&deg;</span>
-            <span>/</span>
-            <span class="min-temp">57&deg;</span>
+            <h2 class="cur-temp"><span>72</span>&deg;</h2>
+            <div class="min-max-temp">
+              <span class="max-temp">81&deg;</span>
+              <span>/</span>
+              <span class="min-temp">57&deg;</span>
+            </div>
           </div>
         </div>
         
-        <div class="hourly-daily-container">
-          <h3 class="hourly-header">Hourly</h3>
-          <h3 class="daily-header">Daily</h3>
-          <hr width="500" align="left">
-        </div>
+        <h3 class="hourly-header">Hourly</h3>
 
         <div class="hourly-weather-container">
           <div class="hourly-weather">
             <h3 class="date">11</h3>
-            <img src="images/cloud-small.png">
+            <img class="weather-icon" src="images/cloud-small.png">
             <h3 class="hourly-degree">79&deg;</h3>
           </div>
           
           <div class="hourly-weather">
             <h3 class="date">11</h3>
-            <img src="images/cloud-small.png">
+            <img class="weather-icon" src="images/cloud-small.png">
             <h3 class="hourly-degree">79&deg;</h3>
           </div>
 
           <div class="hourly-weather">
             <h3 class="date">11</h3>
-            <img src="images/cloud-small.png">
+            <img class="weather-icon" src="images/cloud-small.png">
             <h3 class="hourly-degree">79&deg;</h3>
           </div>
 
           <div class="hourly-weather">
             <h3 class="date">11</h3>
-            <img src="images/cloud-small.png">
+            <img class="weather-icon" src="images/cloud-small.png">
             <h3 class="hourly-degree">79&deg;</h3>
           </div>
 
           <div class="hourly-weather">
             <h3 class="date">11</h3>
-            <img src="images/cloud-small.png">
+            <img class="weather-icon" src="images/cloud-small.png">
             <h3 class="hourly-degree">79&deg;</h3>
           </div>
 
           <div class="hourly-weather">
             <h3 class="date">11AM</h3>
-            <img src="images/cloud-small.png">
+            <img class="weather-icon" src="images/cloud-small.png">
             <h3 class="hourly-degree">79&deg;</h3>
           </div>
         </div>
@@ -94,30 +89,67 @@
 
       </div>
     </div>
-
-    <div class="humidty-wind-container">
-      <div class="humidity-container">
-        <h3>Humidity</h3>
-        <div class="flex-container">
-          <h3 class="humidity-deg">75&deg;</h3>
-          <div class="right">
-            <h3 class="detail-text-left">Feels Like</h3>
-            <span class="detail-text-right">39&deg;</span>
-            <h3 class="detail-text-left">UV index</h3>
-            <span class="detail-text-right">3 Moderate</span>
+    
+    
+    
+    <div class="daily-humidty-wind-container">
+      <div class="bottom-containers daily-container">
+        <h3 class="bottom-header">Daily</h3>
+        <div class="inner-container">
+          <div class="days">
+            <h3 class="day">Tomorrow</h3>
+            <h3 class="day">March</h3>
+            <h3 class="day">Tomorrow</h3>
+            <h3 class="day">Tomorrow</h3>
+            <h3 class="day">Tomorrow</h3>
+            <h3 class="day">Tomorrow</h3>
+          </div>
+          <div class="weather-icons">
+            <img class="weather-icon" src="images/could-smallest.png">
+            <img class="weather-icon" src="images/could-smallest.png">
+            <img class="weather-icon" src="images/could-smallest.png">
+            <img class="weather-icon" src="images/could-smallest.png">
+            <img class="weather-icon" src="images/could-smallest.png">
+            <img class="weather-icon" src="images/could-smallest.png">
+          </div>
+          <div class="daily-min-maxes">
+            <h3 class="daily-min-max"><span>81&deg;</span>/<span>56&deg;</span></h3>
+            <h3 class="daily-min-max"><span>81&deg;</span>/<span>56&deg;</span></h3>
+            <h3 class="daily-min-max"><span>81&deg;</span>/<span>56&deg;</span></h3>
+            <h3 class="daily-min-max"><span>81&deg;</span>/<span>56&deg;</span></h3>
+            <h3 class="daily-min-max"><span>81&deg;</span>/<span>56&deg;</span></h3>
+            <h3 class="daily-min-max"><span>81&deg;</span>/<span>56&deg;</span></h3>
+          </div>
+        </div>
+      </div>
+      <div class="humidity-wind-container">
+        <div class="humidity-container bottom-containers">
+          <h3 class="bottom-header">Humidity</h3>
+          <div class="inner-container ">
+            <h3 class="humidity-deg">75%</h3>
+            <div class="right">
+              <h3 class="detail-text-left">Feels Like</h3>
+              <h3 class="detail-text-left">UV index</h3>
+            </div>
+            <div class="detail-text-right">
+              <h3 class="detail-text-right">39&deg;</h3>
+              <h3 class="detail-text-right">3 Moderate</h3>
+            </div>
           </div>
         </div>
 
-        <div class="flex-container">
-          <h3>Wind</h3>
-          <div class="flex-container">
-            <img src="images/wind.svg">
+        <div class="wind-container bottom-containers">
+          <h3 class="bottom-header">Wind</h3>
+          <div class="inner-container">
+            <img class="weather-icon wind-turbine" src="images/wind-turbine.gif">
             <!--<img src="https://img.icons8.com/plumpy/24/000000/weather-station-wind--v2.png"/>-->
             <div class="right">
               <h3 class="detail-text-left">Direction</h3>
-              <span class="detail-text-right">South&deg;</span>
               <h3 class="detail-text-left">Speed</h3>
-              <span class="detail-text-right">12-28km/h</span>
+            </div>
+            <div class="detail-text-right">
+              <h3 class="detail-text-right">South</h3>
+              <h3 class="detail-text-right">12-28km/h</h3>
             </div>
           </div>
         </div>
@@ -126,13 +158,13 @@
 
     <footer>
       <div class="socials">
-        <a href="/" class="socials">
+        <a href="https://github.com/OybekJP/mytenki" class="socials">
           <img src="images/github.png" alt="link to hithub account">
         </a>
-        <a href="/" class="socials">
+        <a href="https://www.linkedin.com/in/oybek-anapiyaev/" class="socials">
           <img src="images/linkedin.png" alt="link to linkedin account">
         </a>
-        <a href="/" class="socials">
+        <a href="https://www.instagram.com/oybektoyo/" class="socials">
           <img src="images/instagram.png" alt="link to instagram account">
         </a>
       </div>
