@@ -1,0 +1,254 @@
+/*****google fonts*****/
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Roboto&display=swap");
+
+/*****reset*****/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid red;
+}
+a {
+  text-decoration: none;
+}
+
+/*****css variables*****/
+:root {
+  --white: #ffffff;
+  --light-gray: #a4a2a2;
+  --dark-gray: #320442;
+  --green: #2f7eaa;
+  --light-blue: #63ace5;
+  --dark-blue: #133474;
+  --light-brown: #be9b7b;
+  --light-green: #54b2a9;
+  --text-shadow: 0 20px 25px rgba(0, 0, 0, 0.5);
+  --box-shadow: 0 20px 25px rgba(0, 0, 0, 0.3);
+}
+
+/*****global*****/
+body {
+  font-family: "Roboto";
+  font-weight: 400;
+  color: var(--white);
+  font-size: 20px;
+  background: #6e6e80; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #fbc7d4,
+    #9796f0
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #fbc7d4,
+    #9796f0
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-attachment: fixed;
+}
+h2,
+h3,
+h4 {
+  font-weight: 400;
+}
+main {
+  max-width: 805px;
+  margin: 0 auto;
+}
+
+/*****navigation*****/
+.nav-container {
+  text-align: center;
+  margin: 20px auto;
+}
+.logo {
+  text-align: center;
+  font-family: "Lobster", "Roboto";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 56px;
+  color: var(--white);
+  text-shadow: var(--text-shadow);
+}
+
+/*****search tab***/
+form {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+header img {
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.search-input {
+  height: 56px;
+  margin-right: 15px;
+  border-radius: 15px;
+  outline: none;
+  padding-left: 50px;
+}
+.search-input::placeholder {
+  font-size: 20px;
+}
+.search-submit {
+  border-radius: 15px;
+  height: 55px;
+  background: var(--light-green);
+  color: var(--white);
+  font-size: 26px;
+  box-shadow: var(--box-shadow);
+}
+.search-submit::value {
+  font-size: 28px;
+}
+
+/*****forecast section****/
+.forecast-container {
+  background-image: url("images/blurrylong-sunrise.png");
+  background-position: bottom;
+  background-repeat: ;
+  background-size: cover;
+  margin: 20px auto;
+  border-radius: 15px;
+  padding: 15px 0;
+  text-shadow: var(--text-shadow);
+  box-shadow: var(--box-shadow);
+}
+
+.forecast-wrapper {
+  max-width: 634px;
+  max-height: 431px;
+  margin: auto;
+}
+
+.large-infos {
+  display: flex;
+  justify-content: space-between;
+}
+#city-name {
+  font-size: 48px;
+  line-height: 56px;
+}
+#todays-date {
+  font-size: 28px;
+  line-height: 33px;
+}
+.weather-condition {
+  font-size: 36px;
+  line-height: 42px;
+}
+.cur-temp {
+  font-size: 144px;
+  line-height: 169px;
+}
+.min-max-temp {
+  font-size: 46px;
+  line-height: 54px;
+}
+
+/***hourly forecasts****/
+.hourly-header {
+  font-size: 26px;
+  border-bottom: 2px solid var(--white);
+  padding-bottom: 10px;
+}
+
+.hourly-weather-container {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  font-size: 26px;
+  line-height: 30px;
+  margin-top: 20px;
+}
+
+/***Daily, Humidity,Wind containers***/
+.daily-humidty-wind-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: start;
+  height: 410px;
+}
+.humidity-wind-container {
+  display: grid;
+  align-items: stretch;
+  margin-left: 15px;
+}
+.humidity-wind-container .inner-container {
+  display: grid;
+  grid-template-columns: 25% 35% 40%;
+  align-items: center;
+  justify-items: center;
+  margin-top: 30px;
+}
+.bottom-header {
+  font-size: 26px;
+  text-align: center;
+}
+.humidity-deg {
+  font-size: 40px;
+  text-shadow: var(--text-shadow);
+}
+
+.detail-text-left {
+  color: #606b80;
+}
+.bottom-containers {
+  border-radius: 35px;
+  padding: 15px 10px;
+}
+.inner-container {
+  justify-content: space-evenly;
+  display: flex;
+}
+.weather-icons,
+.days,
+.daily-min-maxes {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 300px;
+  padding-top: 30px;
+}
+.daily-container {
+  background-color: var(--light-blue);
+  box-shadow: var(--box-shadow);
+}
+.humidity-container {
+  background-color: var(--light-green);
+  box-shadow: var(--box-shadow);
+  margin-bottom: 5px;
+}
+.wind-container {
+  background-color: var(--light-brown);
+  box-shadow: var(--box-shadow);
+  margin-top: 5px;
+}
+.wind-turbine {
+  max-width: 130px;
+  max-height: 150px;
+}
+/*****Socials****/
+.socials {
+  text-align: center;
+  margin: 15px;
+}
+
+/****box hover effects*****/
+.socials a,
+.bottom-containers,
+.forecast-container {
+  transition: transform 0.2s;
+}
+.socials img:hover,
+.bottom-containers:hover,
+.forecast-container:hover {
+  transform: scale(1.01);
+}
+.search-submit:hover {
+  background-color: var(--light-blue);
+}
