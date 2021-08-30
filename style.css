@@ -5,7 +5,6 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  border: 1px solid red;
 }
 a {
   text-decoration: none;
@@ -110,7 +109,7 @@ header img {
 .forecast-container {
   background-image: url("images/blurrylong-sunrise.png");
   background-position: bottom;
-  background-repeat: ;
+  background-repeat: no-repeat;
   background-size: cover;
   margin: 20px auto;
   border-radius: 15px;
@@ -136,6 +135,9 @@ header img {
 #todays-date {
   font-size: 28px;
   line-height: 33px;
+}
+.large-weather-icon {
+  transform: scale(1.5);
 }
 .weather-condition {
   font-size: 36px;
@@ -165,6 +167,15 @@ header img {
   line-height: 30px;
   margin-top: 20px;
 }
+.date {
+  font-size: 22px;
+}
+/****it move the text higher to fit to the inside box***/
+.hourly-degree {
+  position: relative;
+  top: -27px;
+  text-align: center;
+}
 
 /***Daily, Humidity,Wind containers***/
 .daily-humidty-wind-container {
@@ -190,7 +201,7 @@ header img {
   text-align: center;
 }
 .humidity-deg {
-  font-size: 40px;
+  font-size: 35px;
   text-shadow: var(--text-shadow);
 }
 
@@ -231,6 +242,10 @@ header img {
 .wind-turbine {
   max-width: 130px;
   max-height: 150px;
+}
+.daily-icon {
+  width: 45px;
+  height: 45px;
 }
 /*****Socials****/
 .socials {
