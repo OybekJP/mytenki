@@ -1,8 +1,10 @@
-/*require("dotenv").config()
-let apiKey = process.env.API_KEY*/
+//API key. Left it public because it is a free account and anyone can create one
+//it is impossible to hide an api key on client side even with .env and .gitignore.
+//only way to hide it is to use backend server.
+//at this point I am not familiar with backend, so, I will not hide the key
+const apiKey = "dfe6ec98ed8dc1c173eaa331d84f0de2";
 
-//API ket and URLS
-//const apiKey = "dfe6ec98ed8dc1c173eaa331d84f0de2";
+//API url endpoints. There 3 Openweather API urls because each one of them have the data we need
 const currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather";
 const hourlyWeatherUrl = "https://api.openweathermap.org/data/2.5/forecast";
 const dailyWeatherUrl =
@@ -80,6 +82,7 @@ const getDailyForecast = async () => {
   }
 };
 
+//the function will change some html (mainly data about current weather forecast) with the data received from API
 const renderCurrentForecast = (currentDay) => {
   //change city name
   const cityName = document.getElementById("city-name");
@@ -137,6 +140,7 @@ const renderCurrentForecast = (currentDay) => {
   speed.innerHTML = ((currentDay.wind.speed * 3600) / 1000).toFixed() + " km/h";
 };
 
+//the function will change some html (mainly data about hourly weather forecast) with the data received from API
 const renderHourlyForecast = (hourly) => {
   console.log(hourly);
   const currentHour = new Date().getHours();
@@ -164,6 +168,7 @@ const renderHourlyForecast = (hourly) => {
   createHourlyForecast();
 };
 
+//the function will change some html (mainly data about daily weather forecast) with the data received from API
 const renderDailyForecast = (daily) => {
   //change min and max temp
   const minMaxtTmp = document.querySelector(".min-max-temp");
@@ -199,14 +204,15 @@ const renderDailyForecast = (daily) => {
 
   createDailyForecast();
 };
-//execute current search function
+
+//the funciotn executes/calls the getCurrentForecast function that fetches our API request and uses the resolved response to add html using renderCurrentForecast
 const executeCurrentSearch = () => {
   getCurrentForecast().then((forecast) => {
     return renderCurrentForecast(forecast);
   });
 };
 
-//execute current search function
+//execute hourly search function
 const executeHourlySearch = () => {
   getHourlyForecast().then((forecast) => {
     return renderHourlyForecast(forecast);
@@ -221,17 +227,19 @@ const executeDailySearch = () => {
   });
 };
 
+//the function executes all 3, current, hourly and daily related fucntions
 const executeAllSearch = () => {
   executeCurrentSearch();
   executeHourlySearch();
   executeDailySearch();
 };
 
-//execute search when user click search button ;
+//an event listener which executes executeAll Search function when user clicks submit button
 search.addEventListener("click", () => {
   executeAllSearch();
 });
 //execute search when user hits enter key in the input field
+//an event listener which executes executeAllSearch function when user hits enter key
 city.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     executeAllSearch();
