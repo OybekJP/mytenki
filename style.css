@@ -275,6 +275,12 @@ header img {
   margin-top: 50px;
 }
 
+/**credits to openweather***/
+.credits{
+  margin-top: 20px;
+  text-align: center;
+}
+
 /****box hover effects*****/
 .socials a,
 .bottom-containers,
