@@ -1,4 +1,3 @@
-//import { solo } from './helper';
 /*require('dotenv').config();
 const apiKey = process.env.API_KEY;*/
 
@@ -9,12 +8,16 @@ const hourlyWeatherUrl = "https://api.openweathermap.org/data/2.5/forecast";
 const dailyWeatherUrl =
   "https://api.openweathermap.org/data/2.5/forecast/daily";
 
-//page elements
-//const city = "tashkent"; /*document.getElementById("#search-input")*/
-//const city = document.querySelector("#search-input").value;
-//here only access the element. Dont access its value from here but access it from inside functions to get the latest input value not the first value that wasthere  before refreshing the page.
+//select page elements
+//for the inputted city name, don't access its .value here yet. access the .value inside urlToFetch variables
 const city = document.querySelector("#search-input");
 const search = document.querySelector(".search-btn");
+const forecastContainer = document.querySelector(".forecast-container");
+const dailyContainer = document.querySelector(".daily-container");
+const humidityContainer = document.querySelector(".humidity-container");
+const windContainer = document.querySelector(".wind-container");
+const errorM = document.querySelector(".error");
+
 
 //get current forecast function
 const getCurrentForecast = async () => {
@@ -23,7 +26,27 @@ const getCurrentForecast = async () => {
     const response = await fetch(currentUrlToFetch);
     if (response.ok) {
       const jsonResponse = response.json();
+      //displays our forecast details if API request works fine
+      forecastContainer.style.display = "inherit";
+      dailyContainer.style.display = "inherit";
+      humidityContainer.style.display = "inherit";
+      windContainer.style.display = "inherit";
+      windContainer.style.display = "inherit";
+
+      //hide error message when API request is successful
+      errorM.style.display = "none";
       return jsonResponse;
+    } else if(!response.ok){
+      //hide initial html or last search forecast results when new api reques t for new location is unsuccessful
+      forecastContainer.style.display = "none";
+      dailyContainer.style.display = "none";
+      humidityContainer.style.display = "none";
+      windContainer.style.display = "none";
+      windContainer.style.display = "none";
+
+      //display error message when API request is unsuccessul 
+      errorM.style.display = "inherit";
+      errorM.innerHTML = "Please insert a correct city name.";
     }
   } catch (error) {
     console.log(error);
@@ -214,5 +237,3 @@ city.addEventListener("keypress", (e) => {
     executeAllSearch();
   }
 });
-
-/*export and import helper function*/
