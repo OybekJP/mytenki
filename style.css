@@ -25,13 +25,16 @@ a {
 }
 
 /****CSS to hide results initally and when functions dont execute***/
-.forecast-container, .daily-container, .humidity-container, .wind-container {
-  display:none;
+.forecast-container,
+.daily-container,
+.humidity-container,
+.wind-container {
+  display: none;
 }
 /***div that prints error message to the screen****/
-.error{
+.error {
   display: none;
-  color:rgb(177, 2, 2);
+  color: rgb(177, 2, 2);
   font-size: 1.5rem;
   text-align: center;
   margin-top: 20px;

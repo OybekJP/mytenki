@@ -1,8 +1,8 @@
-/*require('dotenv').config();
-const apiKey = process.env.API_KEY;*/
+/*require("dotenv").config()
+let apiKey = process.env.API_KEY*/
 
 //API ket and URLS
-const apiKey = "5db5e4ef60984c94955a5cc9c42e0c46";
+//const apiKey = "dfe6ec98ed8dc1c173eaa331d84f0de2";
 const currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather";
 const hourlyWeatherUrl = "https://api.openweathermap.org/data/2.5/forecast";
 const dailyWeatherUrl =
@@ -17,7 +17,6 @@ const dailyContainer = document.querySelector(".daily-container");
 const humidityContainer = document.querySelector(".humidity-container");
 const windContainer = document.querySelector(".wind-container");
 const errorM = document.querySelector(".error");
-
 
 //get current forecast function
 const getCurrentForecast = async () => {
@@ -36,7 +35,7 @@ const getCurrentForecast = async () => {
       //hide error message when API request is successful
       errorM.style.display = "none";
       return jsonResponse;
-    } else if(!response.ok){
+    } else if (!response.ok) {
       //hide initial html or last search forecast results when new api reques t for new location is unsuccessful
       forecastContainer.style.display = "none";
       dailyContainer.style.display = "none";
@@ -44,7 +43,7 @@ const getCurrentForecast = async () => {
       windContainer.style.display = "none";
       windContainer.style.display = "none";
 
-      //display error message when API request is unsuccessul 
+      //display error message when API request is unsuccessul
       errorM.style.display = "inherit";
       errorM.innerHTML = "Please insert a correct city name.";
     }
@@ -177,6 +176,7 @@ const renderDailyForecast = (daily) => {
     const icon = document.querySelectorAll(".daily-icon");
     const deg = document.querySelectorAll(".daily-min-max");
 
+    //append daily content like dates, coreesponding icons and min-max temps
     for (let i = 0; i < date.length; i++) {
       date[i].innerHTML = new Date(
         daily.list[i + 1].dt * 1000
