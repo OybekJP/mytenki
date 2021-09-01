@@ -285,6 +285,9 @@ header img {
     grid-template-columns: 1fr;
     text-align: start;
   }
+  .humidity-wind-container .inner-container{
+    margin-top: 0;
+  }
   .humidity-wind-container {
     margin-bottom: 0;
     margin-left: 0;
