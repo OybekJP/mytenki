@@ -10,12 +10,15 @@ const dailyWeatherUrl =
   "https://api.openweathermap.org/data/2.5/forecast/daily";
 
 //page elements
-const city = "tashkent"; /*document.getElementById("#search-input")*/
-const submit = document.querySelector(".search-submit");
+//const city = "tashkent"; /*document.getElementById("#search-input")*/
+//const city = document.querySelector("#search-input").value;
+//here only access the element. Dont access its value from here but access it from inside functions to get the latest input value not the first value that wasthere  before refreshing the page.
+const city = document.querySelector("#search-input");
+const search = document.querySelector(".search-btn");
 
 //get current forecast function
 const getCurrentForecast = async () => {
-  const currentUrlToFetch = `${currentWeatherUrl}?q=${city}&units=metric&appid=${apiKey}`;
+  const currentUrlToFetch = `${currentWeatherUrl}?q=${city.value}&units=metric&appid=${apiKey}`;
   try {
     const response = await fetch(currentUrlToFetch);
     if (response.ok) {
@@ -29,7 +32,7 @@ const getCurrentForecast = async () => {
 
 //current forecast function
 const getHourlyForecast = async () => {
-  const hourlyUrlToFetch = `${hourlyWeatherUrl}?q=${city}&cnt=15&units=metric&appid=${apiKey}`;
+  const hourlyUrlToFetch = `${hourlyWeatherUrl}?q=${city.value}&cnt=15&units=metric&appid=${apiKey}`;
   try {
     const response = await fetch(hourlyUrlToFetch);
     if (response.ok) {
@@ -44,7 +47,7 @@ const getHourlyForecast = async () => {
 //get daily forecast function
 const getDailyForecast = async () => {
   try {
-    const dailyUrlToFetch = `${dailyWeatherUrl}?q=${city}&cnt=7&units=metric&appid=${apiKey}`;
+    const dailyUrlToFetch = `${dailyWeatherUrl}?q=${city.value}&cnt=7&units=metric&appid=${apiKey}`;
     const response = await fetch(dailyUrlToFetch);
     if (response.ok) {
       const jsonResponse = response.json();
@@ -114,9 +117,10 @@ const renderCurrentForecast = (currentDay) => {
 
 const renderHourlyForecast = (hourly) => {
   console.log(hourly);
-  const today = new Date();
-  const now = 9;
-  console.log(now);
+  const currentHour = new Date().getHours();
+  console.log(hourly.list.length);
+  for (let i = 0; i < hourly.list.length; i++) {}
+  console.log(currentHour);
 
   const createHourlyForecast = () => {
     const date = document.querySelectorAll(".date");
@@ -193,15 +197,22 @@ const executeDailySearch = () => {
     return renderDailyForecast(forecast);
   });
 };
+
 const executeAllSearch = () => {
   executeCurrentSearch();
   executeHourlySearch();
   executeDailySearch();
 };
 
-executeAllSearch();
-/*submit.addEventListener("click", () => {
+//execute search when user click search button ;
+search.addEventListener("click", () => {
   executeAllSearch();
-});*/
+});
+//execute search when user hits enter key in the input field
+city.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    executeAllSearch();
+  }
+});
 
 /*export and import helper function*/

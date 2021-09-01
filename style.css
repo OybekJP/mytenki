@@ -31,15 +31,16 @@ body {
   color: var(--white);
   font-size: 20px;
   background: #6e6e80; /* fallback for old browsers */
+  background: #9796f0; /* fallback for old browsers */
   background: -webkit-linear-gradient(
-    to top,
-    #fbc7d4,
-    #9796f0
+    to bottom,
+    #9796f0,
+    #fbc7d4
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
-    to top,
-    #fbc7d4,
-    #9796f0
+    to bottom,
+    #9796f0,
+    #fbc7d4
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background-attachment: fixed;
 }
@@ -70,7 +71,7 @@ main {
 }
 
 /*****search tab***/
-form {
+.search-container {
   display: grid;
   grid-template-columns: 3fr 1fr;
 }
@@ -89,11 +90,12 @@ header img {
   border-radius: 15px;
   outline: none;
   padding-left: 50px;
+  font-size: 20px;
 }
 .search-input::placeholder {
   font-size: 20px;
 }
-.search-submit {
+.search-btn {
   border-radius: 15px;
   height: 55px;
   background: var(--light-green);
@@ -101,7 +103,7 @@ header img {
   font-size: 26px;
   box-shadow: var(--box-shadow);
 }
-.search-submit::value {
+.search-btn::value {
   font-size: 28px;
 }
 
@@ -120,7 +122,6 @@ header img {
 
 .forecast-wrapper {
   max-width: 634px;
-  max-height: 431px;
   margin: auto;
 }
 
@@ -166,6 +167,7 @@ header img {
   font-size: 26px;
   line-height: 30px;
   margin-top: 20px;
+  overflow: scroll;
 }
 .date {
   font-size: 22px;
@@ -182,7 +184,6 @@ header img {
   display: grid;
   grid-template-columns: 1fr 1fr;
   text-align: start;
-  height: 410px;
 }
 .humidity-wind-container {
   display: grid;
@@ -250,20 +251,94 @@ header img {
 /*****Socials****/
 .socials {
   text-align: center;
-  margin: 15px;
+  margin-top: 50px;
 }
 
 /****box hover effects*****/
 .socials a,
 .bottom-containers,
 .forecast-container {
-  transition: transform 0.2s;
+  transition: transform 0.5s;
 }
 .socials img:hover,
 .bottom-containers:hover,
 .forecast-container:hover {
   transform: scale(1.01);
 }
-.search-submit:hover {
+.search-btn:hover {
   background-color: var(--light-blue);
+}
+
+/*****Responsive for tablets*****/
+@media only screen and (max-width: 768px) {
+  main {
+    margin: auto 10px;
+  }
+}
+/*****Responsive for smaller screen tablets and large screen smartphones*****/
+@media only screen and (max-width: 650px) {
+  .forecast-container {
+    padding: 15px;
+  }
+  .daily-humidty-wind-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: start;
+  }
+  .humidity-wind-container {
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+  .humidity-container {
+    margin-bottom: 0;
+  }
+  .bottom-containers {
+    margin-top: 20px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  body {
+    font-size: 15px;
+  }
+  .search-input {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  .search-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .cur-temp {
+    font-size: 55px;
+    line-height: 1;
+  }
+  .min-max-temp {
+    font-size: 20px;
+    line-height: 1;
+    text-align: center;
+  }
+  #todays-date {
+    font-size: 20px;
+    line-height: 1;
+  }
+  /****hourly forecast elements****/
+  .hourly-header {
+    margin-top: 20px;
+  }
+  .date {
+    font-size: 15px;
+  }
+  .hourly-icon {
+    width: 60px;
+  }
+  .hourly-degree {
+    font-size: 20px;
+    margin-top: 5px;
+  }
+
+  /****footer social icons***/
+  .socials img {
+    width: 45px;
+    padding: 5px;
+  }
 }

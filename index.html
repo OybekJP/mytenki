@@ -6,8 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
-  <script src="mainTest.js" defer async></script>
-  <script src="helper.js" defer async></script>
+  <script src="mainTest.js" defer ></script>
 </head>
 <body>
   <main>
@@ -21,10 +20,10 @@
 
     <header>
       <img src="images/search.svg">
-      <form class="search-form">
-        <input class="search-input" id="search-input" name="query" type="search" placeholder="Search Location">
-        <input class="search-submit" name="submit" type="submit" value="Search">
-      </form>
+      <div class="search-container">
+        <input class="search-input" id="search-input" type="search" placeholder="Search Location">
+        <button class="search-btn">Search</button>
+      </div>
     </header>
 
 
@@ -85,9 +84,7 @@
         <!--create daily forecast toggle info later-->
 
       </div>
-    </div>
-    
-    
+    </div>    
     
     <div class="daily-humidty-wind-container">
       <div class="bottom-containers daily-container">
