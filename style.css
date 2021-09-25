@@ -274,9 +274,12 @@ header img {
   text-align: center;
   margin-top: 50px;
 }
+.globe img {
+  max-width: 43px;
+}
 
 /**credits to openweather***/
-.credits{
+.credits {
   margin-top: 20px;
   text-align: center;
 }
