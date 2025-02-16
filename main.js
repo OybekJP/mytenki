@@ -26,25 +26,22 @@ const getCurrentForecast = async () => {
   try {
     const response = await fetch(currentUrlToFetch);
     if (response.ok) {
-      const jsonResponse = response.json();
+      const jsonResponse = await response.json();
+      const { lat, lon } = jsonResponse.coord;
       //displays our forecast details if API request works fine
       forecastContainer.style.display = "inherit";
       dailyContainer.style.display = "inherit";
       humidityContainer.style.display = "inherit";
       windContainer.style.display = "inherit";
-      windContainer.style.display = "inherit";
-
       //hide error message when API request is successful
       errorM.style.display = "none";
-      return jsonResponse;
+      return { ...jsonResponse, lat, lon };
     } else if (!response.ok) {
       //hide initial html or last search forecast results when new api reques t for new location is unsuccessful
       forecastContainer.style.display = "none";
       dailyContainer.style.display = "none";
       humidityContainer.style.display = "none";
       windContainer.style.display = "none";
-      windContainer.style.display = "none";
-
       //display error message when API request is unsuccessul
       errorM.style.display = "inherit";
       errorM.innerHTML = "Please insert a correct city name.";
@@ -69,12 +66,12 @@ const getHourlyForecast = async () => {
 };
 
 //get daily forecast function
-const getDailyForecast = async () => {
+const getDailyForecast = async (latitude, longitude) => {
   try {
-    const dailyUrlToFetch = `${dailyWeatherUrl}?q=${city.value}&cnt=7&units=metric&appid=${apiKey}`;
+    const dailyUrlToFetch = `${dailyWeatherUrl}?lat=${latitude}&lon=${longitude}&cnt=7&units=metric&appid=${apiKey}`;
     const response = await fetch(dailyUrlToFetch);
     if (response.ok) {
-      const jsonResponse = response.json();
+      const jsonResponse = await response.json();
       return jsonResponse;
     }
   } catch (error) {
@@ -221,9 +218,12 @@ const executeHourlySearch = () => {
 
 //execute daily search function
 const executeDailySearch = () => {
-  getDailyForecast().then((forecast) => {
-    console.log(forecast);
-    return renderDailyForecast(forecast);
+  getCurrentForecast().then((forecast) => {
+    const { lat, lon } = forecast;
+    getDailyForecast(lat, lon).then((dailyForecast) => {
+      console.log(dailyForecast);
+      return renderDailyForecast(dailyForecast);
+    });
   });
 };
 
